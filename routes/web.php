@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return 'welcome';
-});
+// Route::get('/', function () {
+//     return 'welcome';
+// });
+
+Route::get('/', 'ContainerController@Container');
+
 // Rota de create
 Route::get('/create', function () {
     return 'criar';
