@@ -13,27 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return 'welcome';
-// });
-
 Route::get('/', 'ContainerController@Container');
 
-// Rota de create
-Route::get('/create', function () {
-    return 'criar';
-});
-Route::post('/create', function () {
-    return 'criar';
-});
-// Rota de update
-Route::get('/update/{id}', function () {
-    return 'editar';
-});
-Route::put('/update/{id}', function () {
-    return 'editar';
-});
-// Rota de delete
-Route::delete('/delete{id}', function () {
-    return 'deletar';
-});
+//Route::get('/', [ContainerController::class, 'index'])->name('index');
+
+Route::get('/criar', [CreateContainerController::class, 'create'])->name('create');
+
+Route::post('/criar', [CreateContainerController::class, 'createCntr'])->name('createCntr');
+
+Route::get('/editar/{id}', [UpdateContainerController::class, 'update'])->name('update');
+
+Route::put('/editar/{id}', [UpdateContainerController::class, 'updateCntr'])->name('updateCntr');
+
+Route::delete('/deletar/{id}', [DeleteContainerController::class, 'destroy'])->name('delete');
