@@ -8,7 +8,7 @@ use Brick\Math\Exception\IntegerOverflowException;
 class ContainerController extends Controller
 {
     public function Container(){
-        echo 'Olá';
+        return view('container.index');
     }
 
     // public function index()

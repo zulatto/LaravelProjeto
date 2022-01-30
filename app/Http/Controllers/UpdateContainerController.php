@@ -8,10 +8,14 @@ use Carbon\Carbon;
 
 class UpdateContainerController extends Controller
 {
-    public function update(int $id)
-    {
-        return view('container.edit', ['container' => Container::findOrFail($id)]);
+    public function Container(){
+        return view('container.edit');
     }
+
+    // public function update(int $id)
+    // {
+    //     return view('container.edit', ['container' => Container::findOrFail($id)]);
+    // }
 
     // public function updateCntr(Request $request, int $id)
     // {

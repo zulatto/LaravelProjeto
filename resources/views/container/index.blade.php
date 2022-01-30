@@ -11,7 +11,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="index.php">Home</a>
+        <a class="nav-link" href="#">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Cadastro</a>
@@ -58,7 +58,7 @@
             </button>
             </div>
             <div class="modal-body">
-            <form action="src/controller/delete.php" method="POST">
+            <form action="#">
                 <p>Deseja realmente excluir o container <b id="numContainer">Numero container</b>?</p>
                 </div>
                 <div class="modal-footer">

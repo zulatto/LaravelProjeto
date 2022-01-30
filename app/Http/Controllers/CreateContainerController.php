@@ -8,8 +8,7 @@ use Carbon\Carbon;
 
 class CreateContainerController extends Controller
 {
-    public function create()
-    {
+    public function Container(){
         return view('container.create');
     }
 

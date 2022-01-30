@@ -15,14 +15,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'ContainerController@Container');
 
+Route::get('/criar', 'CreateContainerController@Container');
+
+Route::get('/editar', 'UpdateContainerController@Container');
+
 //Route::get('/', [ContainerController::class, 'index'])->name('index');
 
-Route::get('/criar', [CreateContainerController::class, 'create'])->name('create');
+// Route::get('/criar', [CreateContainerController::class, 'create'])->name('create');
 
-Route::post('/criar', [CreateContainerController::class, 'createCntr'])->name('createCntr');
+// Route::post('/criar', [CreateContainerController::class, 'createCntr'])->name('createCntr');
 
-Route::get('/editar/{id}', [UpdateContainerController::class, 'update'])->name('update');
+// Route::get('/editar/{id}', [UpdateContainerController::class, 'update'])->name('update');
 
-Route::put('/editar/{id}', [UpdateContainerController::class, 'updateCntr'])->name('updateCntr');
+// Route::put('/editar/{id}', [UpdateContainerController::class, 'updateCntr'])->name('updateCntr');
 
-Route::delete('/deletar/{id}', [DeleteContainerController::class, 'destroy'])->name('delete');
+// Route::delete('/deletar/{id}', [DeleteContainerController::class, 'destroy'])->name('delete');
