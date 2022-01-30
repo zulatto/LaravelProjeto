@@ -12,13 +12,12 @@ class CreateContainerController extends Controller
         return view('container.create');
     }
 
-    public function createCntr(Request $request)
-    {
-        $request->request->add(['data_criacao' => Carbon::now('America/Sao_Paulo'), 'data_atualizacao' => Carbon::now('America/Sao_Paulo')]);
-        
-        $container = new Container($request->all());
-        $container->save();
+    // public function store(Request $request)
+    // {
+    //     CreateContainer::create($request->all());
 
-        return redirect()->route('index');
-    }
+    //     return redirect()->route('container.index')
+    //                     ->with('success','Container inserido com sucesso.');
+    // }
+
 }
