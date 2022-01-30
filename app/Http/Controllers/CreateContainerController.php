@@ -12,13 +12,13 @@ class CreateContainerController extends Controller
         return view('container.create');
     }
 
-    // public function createCntr(Request $request)
-    // {
-    //     $request->request->add(['data_criacao' => Carbon::now('America/Sao_Paulo'), 'data_atualizacao' => Carbon::now('America/Sao_Paulo')]);
+    public function createCntr(Request $request)
+    {
+        $request->request->add(['data_criacao' => Carbon::now('America/Sao_Paulo'), 'data_atualizacao' => Carbon::now('America/Sao_Paulo')]);
         
-    //     $container = new Container($request->all());
-    //     $container->save();
+        $container = new Container($request->all());
+        $container->save();
 
-    //     return redirect()->route('index');
-    // }
+        return redirect()->route('index');
+    }
 }
