@@ -14,7 +14,7 @@
         <a class="nav-link" href="#">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Cadastro</a>
+        <a class="nav-link" href="{{route('create')}}">Cadastro</a>
       </li>
     </ul>
   </div>
@@ -30,24 +30,32 @@
         </tr>
     </thead>
     <tbody>
+      @foreach($containers as $container)
+      @php
+        $container->valor = floatval($container->valor);
+      @endphp
                 <tr>
-                <th scope='row'>cliente</th>
-                <td>container</td>
-                <td>tipo</td>
-                <td>Data criação</td>
-                <td>
-                    <a href='#' class='btn btn-success btn-sm'>Editar</a>
-                    <a href='#' class='btn btn-danger btn-sm' data-toggle='modal' data-target='#confirmDelete'
-                    onclick=" . '"' ."getData('$cd', '$container')" . '"' ."
-                    >Excluir</a>
-                </td>
+                  <td data-label="Cliente">{{$container->cliente}}</td>
+                  <td data-label="Container">{{$container->container}}</td>
+                  <td data-label="Tipo">{{$container->tipo == 0 ? "20" : "40"}}</td>
+                  <td data-label="Data de criação">{{$container->data}}</td>
+
+                  <td>
+                      <a href="{{route('update',$container->id)}}" class='btn btn-success btn-sm'>Editar</a>
+
+                      <a href='#' class='btn btn-danger btn-sm' data-toggle='modal' data-target='#confirmDelete'
+                      onclick="getData('{{$container->id}}')"
+                      >Excluir</a>
+                  </td>
                 </tr>
+                @endforeach
     </tbody>
     </table>
             </div>
         </div>
     </div>
     <!-- Modal -->
+    @if(isset ($container))
     <div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
@@ -58,22 +66,23 @@
             </button>
             </div>
             <div class="modal-body">
-            <form action="#">
-                <p>Deseja realmente excluir o container <b id="numContainer">Numero container</b>?</p>
+            <form action="{{route('delete',$container->id)}}" method="POST">
+                <p>Deseja realmente excluir o container?</p>
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
                 <input type="hidden" name="id" id="cd_container" value="">
             <button type="submit" class="btn btn-danger">Sim</button>
+            @method('DELETE')
+            @csrf
             </form>
             </div>
         </div>
         </div>
     </div>
-
+@endif
     <script type="text/javascript">
-        function getData(id, num_Container){
-            document.getElementById('numContainer').innerHTML = num_Container;
+        function getData(id){
             document.getElementById('cd_container').value = id;
         }
     </script>
