@@ -13,7 +13,7 @@ class CreateContainer extends Migration
      */
     public function up()
     {
-        Schema::create('container', function (Blueprint $table) {
+        Schema::create('containers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('cliente');
             $table->string('container');
@@ -30,6 +30,6 @@ class CreateContainer extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('container');
+        Schema::dropIfExists('containers');
     }
 }
